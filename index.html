@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Profile</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="js/script.js"></script>
+</head>
+<body class="font-sans bg-gray-50">
+  <!-- Navbar -->
+  <nav class="bg-white shadow fixed top-0 left-0 w-full z-50">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center py-4">
+      <div class="font-bold text-lg">My Website</div>
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex gap-6">
+        <li><a href="#home" class="hover:text-blue-500">Home</a></li>
+        <li><a href="#profile" class="hover:text-blue-500">Our Profile</a></li>
+        <li><a href="#headquarter" class="hover:text-blue-500">Headquarter</a></li>
+        <li><a href="#message" class="hover:text-blue-500">Message Us</a></li>
+      </ul>
+      <!-- Hamburger -->
+      <button id="menuBtn" class="md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <ul id="mobileMenu" class="hidden flex-col gap-4 px-4 pb-4 md:hidden">
+      <li><a href="#home" class="hover:text-blue-500">Home</a></li>
+      <li><a href="#profile" class="hover:text-blue-500">Our Profile</a></li>
+      <li><a href="#headquarter" class="hover:text-blue-500">Headquarter</a></li>
+      <li><a href="#message" class="hover:text-blue-500">Message Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Padding biar konten ga ketiban navbar -->
+  <div class="pt-20"></div>
+
+  <!-- Home -->
+  <section id="home" class="bg-gradient-to-r from-blue-50 to-white text-center py-20 shadow-inner">
+    <h1 id="greeting" class="text-4xl font-bold mb-4"></h1>
+    <p class="text-gray-600 max-w-xl mx-auto">
+      Selamat datang di website resmi perusahaan kami.
+    </p>
+  </section>
+
+  <!-- Profile -->
+  <section id="profile" class="max-w-4xl mx-auto p-6 bg-white rounded-2xl shadow-lg my-12">
+    <h2 class="text-2xl font-bold mb-4">About Our Company</h2>
+    <p class="mb-6">
+      Kami adalah perusahaan yang bergerak di bidang teknologi, menyediakan solusi digital untuk berbagai kebutuhan bisnis.
+    </p>
+
+    <h3 class="text-xl font-semibold mb-2">Vision</h3>
+    <p class="mb-6">
+      Menjadi perusahaan terdepan dalam inovasi teknologi digital di Indonesia.
+    </p>
+
+    <h3 class="text-xl font-semibold mb-2">Mission</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li>Menghadirkan solusi teknologi terbaik untuk pelanggan.</li>
+      <li>Memberdayakan SDM yang profesional dan berintegritas.</li>
+      <li>Mendukung pertumbuhan bisnis melalui inovasi digital.</li>
+    </ul>
+  </section>
+
+  <!-- Headquarter -->
+  <section id="headquarter" class="max-w-4xl mx-auto p-6 bg-white rounded-2xl shadow-lg my-12">
+    <h2 class="text-2xl font-bold mb-6 text-center">Our Headquarter</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div class="p-4 bg-gray-50 rounded-lg shadow flex flex-col items-center">
+        <div class="w-16 h-16 rounded-full border bg-gray-200"></div>
+        <p class="mt-2 font-medium">Jakarta</p>
+      </div>
+      <div class="p-4 bg-gray-50 rounded-lg shadow flex flex-col items-center">
+        <div class="w-16 h-16 rounded-full border bg-gray-200"></div>
+        <p class="mt-2 font-medium">Bandung</p>
+      </div>
+      <div class="p-4 bg-gray-50 rounded-lg shadow flex flex-col items-center">
+        <div class="w-16 h-16 rounded-full border bg-gray-200"></div>
+        <p class="mt-2 font-medium">Surabaya</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Message Us -->
+  <section id="message" class="max-w-4xl mx-auto p-6 bg-white rounded-2xl shadow-lg my-12">
+    <h2 class="text-2xl font-bold mb-6 text-center">Message Us</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Form -->
+      <form onsubmit="validateForm(event)" class="space-y-4">
+        <div>
+          <input id="nama" type="text" placeholder="Nama" class="border p-2 w-full rounded">
+          <p id="error-nama" class="text-red-500 text-xs hidden">Nama wajib diisi</p>
+        </div>
+        <div>
+          <input id="tanggal" type="date" class="border p-2 w-full rounded">
+          <p class="text-xs text-gray-500 mt-1">Tanggal lahir (minimal umur 10 tahun)</p>
+          <p id="error-tanggal" class="text-red-500 text-xs hidden">Tanggal lahir tidak valid</p>
+        </div>
+        <div>
+          <input id="email" type="email" placeholder="Email" class="border p-2 w-full rounded">
+          <p id="error-email" class="text-red-500 text-xs hidden">Email tidak valid</p>
+        </div>
+        <div>
+          <textarea id="pesan" placeholder="Pesan" class="border p-2 w-full rounded"></textarea>
+          <p id="error-pesan" class="text-red-500 text-xs hidden">Pesan wajib diisi</p>
+        </div>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+          Submit
+        </button>
+      </form>
+
+      <!-- Output -->
+      <div class="border p-4 rounded bg-gray-50 h-full">
+        <h3 class="font-bold mb-2">History Message:</h3>
+        <div id="outputList" class="space-y-3 text-sm text-gray-700 max-h-80 overflow-y-auto pr-2"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center p-4 bg-gray-100 border-t">
+    Created by Bagas
+  </footer>
+
+  <!-- Floating Button -->
+  <button id="toTopBtn"
+    class="hidden fixed bottom-6 right-6 bg-blue-500 hover:bg-blue-600 text-white rounded-full p-3 shadow-lg">
+    ↑
+  </button>
+</body>
+</html>
